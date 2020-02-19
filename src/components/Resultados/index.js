@@ -17,6 +17,10 @@ export default class extends React.Component{
         console.log(this.props)
     }
 
+    capitalizeFirstLetter = string => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
     render(){
         return(
             <div className="col-sm-12 col-md-8">
@@ -26,7 +30,7 @@ export default class extends React.Component{
                         this.props.pokemones.map((ele, index) => {
                             return <Card
                                 key = {index}
-                                title={ele.name}
+                                title={this.capitalizeFirstLetter(ele.name)}
                                 url={ele.url}
                                 index={ele.url.split('/')[6]}
                             />
